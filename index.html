@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr. Ramya’s Diagnostic and Scanning Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fcf9ff;--surface:#fff;--ink:#2a1b5c;--muted:#5d5284;--line:#eadff9;
+  --coral:#ff5d73;--teal:#10b5a4;--sun:#ffc83d;--violet:#7c4dff;--sky:#38a8ff;
+  --h1:#ffe1e8;--h2:#e5dcff;--h3:#d2f6ef;--on:#fff;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#130e2a;--surface:#201848;--ink:#f3eeff;--muted:#bdb4e3;--line:#392d6b;--h1:#3b1a3f;--h2:#2a1f5c;--h3:#12403f;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#130e2a;--surface:#201848;--ink:#f3eeff;--muted:#bdb4e3;--line:#392d6b;--h1:#3b1a3f;--h2:#2a1f5c;--h3:#12403f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.06rem/1.6 var(--body);padding-bottom:5rem}
+@media(min-width:760px){body{padding-bottom:0}}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--h1),var(--h2) 55%,var(--h3))}
+.blob{position:absolute;border-radius:50%;filter:blur(8px);opacity:.55;pointer-events:none}
+.b1{width:340px;height:340px;background:var(--coral);right:-90px;top:-110px}
+.b2{width:260px;height:260px;background:var(--teal);left:-90px;bottom:-110px;opacity:.4}
+.b3{width:140px;height:140px;background:var(--sun);left:46%;top:60px;opacity:.5}
+.bar{position:relative;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
+.logo{font:800 1.15rem var(--head);text-decoration:none}
+.logo span{color:var(--coral)}
+.bar nav{display:flex;gap:1.2rem;font-weight:600;font-size:.95rem}
+.bar nav a{text-decoration:none}
+@media(max-width:560px){.bar nav{display:none}}
+.grid{position:relative;display:grid;gap:2.2rem;grid-template-columns:1fr;align-items:center;padding:1.5rem 0 4rem}
+@media(min-width:880px){.grid{grid-template-columns:1.15fr 1fr}}
+h1{font:800 clamp(2.4rem,6.4vw,4.4rem)/1.02 var(--head);letter-spacing:-.03em;margin:0 0 1rem}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--coral),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.2rem;color:var(--muted);max-width:44ch;margin:0 0 1.6rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.95rem 1.5rem;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.coral{background:var(--coral);color:#fff;box-shadow:0 10px 24px -8px var(--coral)}
+.btn.line{border:2px solid var(--ink)}
+.btn.white{background:#fff;color:#2a1b5c}
+.btn.green{background:#1fa855;color:#fff}
+
+.book{background:var(--surface);border-radius:28px;padding:1.6rem;box-shadow:0 30px 60px -25px rgba(80,40,160,.45);transform:rotate(1.5deg)}
+.book h2{font:800 1.4rem var(--head);margin:0 0 .2rem}
+.book p{margin:0 0 .8rem;color:var(--muted)}
+.beat{display:block;width:100%;height:70px;color:var(--coral)}
+.beat path{fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:420;animation:beat 3s linear infinite}
+@keyframes beat{from{stroke-dashoffset:420}to{stroke-dashoffset:-420}}
+.num{display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem;border-radius:16px;background:var(--bg);margin-top:.6rem;text-decoration:none;font:800 1.3rem var(--head)}
+.num small{display:block;font:500 .8rem var(--body);color:var(--muted)}
+.num i{font-style:normal;width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--teal);color:#fff}
+@media(prefers-reduced-motion:reduce){.beat path{animation:none;stroke-dasharray:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
+
+.trust{margin-top:-2rem;position:relative}
+.tr{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.tr div{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1rem 1.1rem;box-shadow:0 12px 30px -18px rgba(80,40,160,.4)}
+.tr b{display:block;font:800 1.5rem var(--head)}
+.tr span{color:var(--muted);font-size:.92rem}
+.tr a{color:var(--violet);font-weight:700}
+
+section{padding:3.4rem 0}
+h2.t{font:800 clamp(1.8rem,4.4vw,2.6rem)/1.08 var(--head);letter-spacing:-.02em;margin:0 0 .5rem}
+.sub{color:var(--muted);margin:0 0 1.8rem;max-width:56ch}
+.gh{display:inline-block;margin:1.6rem 0 .8rem;padding:.3rem .9rem;border-radius:999px;font-weight:700;font-size:.95rem;color:#fff}
+.gh.a{background:var(--coral)}.gh.b{background:var(--violet)}.gh.c{background:var(--teal)}
+.svcs{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.svc{display:flex;align-items:center;gap:.9rem;padding:.9rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:22px;font-weight:600;transition:transform .15s,box-shadow .15s}
+.svc:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px rgba(80,40,160,.55)}
+.ico{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.65rem;background:var(--g)}
+.k1{--g:linear-gradient(135deg,#ffb3c0,#ff7d92)}.k2{--g:linear-gradient(135deg,#cdb8ff,#9b7bff)}
+.k3{--g:linear-gradient(135deg,#9eeadf,#37c9b8)}.k4{--g:linear-gradient(135deg,#ffe28a,#ffb83d)}
+.k5{--g:linear-gradient(135deg,#a9d8ff,#5db4ff)}
+
+.doc{background:linear-gradient(135deg,var(--violet),#b04dff 60%,var(--coral));color:#fff;border-radius:32px;padding:2.2rem;display:grid;gap:1.6rem;grid-template-columns:1fr;align-items:center}
+@media(min-width:780px){.doc{grid-template-columns:1.2fr 1fr;padding:3rem}}
+.doc h2{font:800 clamp(1.8rem,4vw,2.5rem)/1.08 var(--head);margin:0 0 .6rem}
+.doc p{margin:0;opacity:.92;max-width:46ch}
+.cred{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:22px;padding:1.3rem}
+.cred b{display:block;font:800 1.35rem var(--head);margin-bottom:.4rem}
+.cred p{margin:.2rem 0}
+.medal{display:inline-block;margin-top:.7rem;padding:.3rem .8rem;border-radius:999px;background:var(--sun);color:#3b2600;font-weight:700;font-size:.9rem}
+
+.cta{text-align:center;background:var(--sun);color:#2a1b5c;border-radius:32px;padding:2.6rem 1.4rem}
+.cta h2{font:800 clamp(1.8rem,4.6vw,2.8rem)/1.08 var(--head);margin:0 0 .5rem}
+.cta p{margin:0 0 1.3rem}
+.cta .btns{justify-content:center}
+.cta .btn.main{background:#2a1b5c;color:#fff}
+.visit{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:1.6rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:1.5rem}
+.card h3{font:800 1.15rem var(--head);margin:0 0 .5rem}
+.card p{margin:.2rem 0}
+[hidden]{display:none!important}
+.bk{display:grid;gap:2rem;grid-template-columns:1fr;background:linear-gradient(135deg,var(--h1),var(--h2) 60%,var(--h3));border-radius:32px;padding:2rem}
+@media(min-width:860px){.bk{grid-template-columns:1fr 1.1fr;padding:3rem;align-items:start}}
+.steps{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:.8rem;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:.8rem;align-items:center;font-weight:600}
+.steps li::before{content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:800}
+.bkc{background:var(--surface);border-radius:24px;padding:1.5rem;box-shadow:0 24px 50px -28px rgba(80,40,160,.5)}
+.bkc label{display:block;font-weight:700;font-size:.92rem;margin:.9rem 0 .3rem}
+.bkc label:first-child{margin-top:0}
+.bkc input,.bkc select,.bkc textarea{width:100%;padding:.8rem 1rem;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.bkc input:focus,.bkc select:focus,.bkc textarea:focus{border-color:var(--violet)}
+.row{display:grid;gap:.8rem;grid-template-columns:1fr 1fr}
+@media(max-width:420px){.row{grid-template-columns:1fr}}
+.err{color:var(--coral);font-weight:600;margin:.7rem 0 0;min-height:1.2em}
+.sub-btn{width:100%;border:0;font:700 1.05rem var(--body);cursor:pointer;margin-top:.6rem}
+.bkc h3{font:800 1.3rem var(--head);margin:0 0 .4rem}
+.sum{white-space:pre-wrap;font:500 .92rem var(--body);background:var(--bg);border:1px dashed var(--line);border-radius:14px;padding:.9rem;margin:.8rem 0 1rem}
+.bkc button.btn{cursor:pointer;background:transparent;color:var(--ink);font:700 1rem var(--body)}
+footer{padding:1.6rem 0 2rem;color:var(--muted);font-size:.92rem;text-align:center}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:.6rem;padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line)}
+.dock a{flex:1;text-align:center;padding:.85rem;border-radius:999px;font-weight:700;text-decoration:none;color:#fff}
+.dock .c{background:var(--coral)}.dock .w{background:#1fa855}
+@media(min-width:760px){.dock{display:none}}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <div class="bar">
+      <a class="logo" href="#top">Dr. Ramya’s <span>Diagnostic Centre</span></a>
+      <nav aria-label="Main"><a href="#book">Book</a><a href="#scans">Scans</a><a href="#doctor">Doctor</a><a href="#visit">Visit</a></nav>
+    </div>
+    <div class="grid">
+      <div>
+        <h1>Gentle, clear scans for <em>you and your family</em></h1>
+        <p class="lead">From pregnancy scans to Doppler studies, every report is read by a radiologist at our centre in Balighattam.</p>
+        <div class="btns">
+          <a class='btn coral' href='#book'>Book a slot</a>
+          <a class="btn line" href="#scans">See our 14 scans</a>
+        </div>
+      </div>
+      <div class="book">
+        <h2>Book your scan</h2>
+        <p>Call or message us to fix a time.</p>
+        <svg class="beat" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 H70 L88 40 L104 10 L126 64 L142 26 L156 40 H300"/></svg>
+        <a class="num" href="tel:+918019917498"><i>📞</i><span><small>Mobile</small>80199 17498</span></a>
+        <a class="num" href="tel:+918937516045"><i>☎️</i><span><small>Landline</small>08937 516045</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="trust"><div class="wrap"><div class="tr">
+  <div><b>5.0 ★★★★★</b><span><a href="https://www.google.com/maps/search/?api=1&amp;query=Dr.+Ramya%27s+Diagnostic+and+Scanning+Centre+Balighattam" target="_blank" rel="noopener">Read our 11 Google reviews</a></span></div>
+  <div><b>MUHS Gold Medal</b><span>Awarded to our radiologist</span></div>
+  <div><b>14 scans</b><span>Pregnancy, general and Doppler</span></div>
+  <div><b>M.D. Radio-Diagnosis</b><span>LTMMC, Mumbai</span></div>
+</div></div></div>
+
+<main>
+  <section id="scans">
+    <div class="wrap">
+      <h2 class="t">Scans we offer</h2>
+      <p class="sub">Not sure which scan you need? Call us and we will guide you.</p>
+      <span class="gh a">Pregnancy and fertility</span>
+      <div class="svcs" id="g1"></div>
+      <span class="gh b">General ultrasound</span>
+      <div class="svcs" id="g2"></div>
+      <span class="gh c">Doppler and procedures</span>
+      <div class="svcs" id="g3"></div>
+    </div>
+  </section>
+
+  <section id='book' style='padding-top:0'>
+<div class='wrap'><div class='bk'>
+<div><h2 class='t'>Book a slot</h2><p class='sub'>Fill in your details and send them to us on WhatsApp. Our team will reply to confirm your time.</p>
+<ol class='steps'><li>Fill in the form</li><li>Tap Send in WhatsApp</li><li>Wait for our confirmation message</li></ol></div>
+<div class='bkc'>
+<form id='bf' novalidate>
+<label for='bn'>Patient name</label><input id='bn' type='text' autocomplete='name' placeholder='Your full name'>
+<label for='bp'>Phone number</label><input id='bp' type='tel' autocomplete='tel' inputmode='numeric' placeholder='10-digit mobile number'>
+<label for='bs'>Scan needed</label><select id='bs'><option value=''>Choose a scan</option><optgroup label='Pregnancy and fertility'><option>USG Obstetrics</option><option>NT Scan</option><option>TIFFA (Anomaly)</option><option>Obstetric Doppler</option><option>Follicular Study</option><option>Neurosonogram</option></optgroup><optgroup label='General ultrasound'><option>USG Abdomen</option><option>USG Pelvis</option><option>USG Neck</option><option>USG Scrotum</option><option>USG Local</option><option>Sonomammogram (Bilateral)</option></optgroup><optgroup label='Doppler and procedures'><option>Colour Doppler, single</option><option>USG Guided FNAC</option></optgroup><option>Not sure, please advise</option></select>
+<div class='row'><div><label for='bd'>Preferred date</label><input id='bd' type='date'></div><div><label for='bt'>Preferred time</label><input id='bt' type='time'></div></div>
+<label for='bm'>Notes (optional)</label><textarea id='bm' rows='2' placeholder='For example: pregnancy week, doctor’s referral'></textarea>
+<p id='err' class='err' role='alert'></p>
+<button class='btn coral sub-btn' type='submit'>Request this slot</button>
+</form>
+<div id='done' hidden>
+<h3>Almost done</h3><p>WhatsApp should open with your request. If it did not, tap the green button. <b>Your request reaches us only after you tap Send in WhatsApp.</b></p>
+<pre id='sum' class='sum'></pre>
+<div class='btns'><a id='wa' class='btn green' href='#' target='_blank' rel='noopener'>Send on WhatsApp</a><button id='edit' class='btn line' type='button'>Change details</button></div>
+</div>
+</div>
+</div></div>
+</section>
+
+<section id="doctor" style="padding-top:0">
+    <div class="wrap"><div class="doc">
+      <div>
+        <h2>Meet Dr. Allu Ramya Devi</h2>
+        <p>Every scan is done and reported under a qualified radiologist, so the answer you get comes from the person who read your images.</p>
+      </div>
+      <div class="cred">
+        <b>Dr. Allu Ramya Devi</b>
+        <p>MBBS (AMC, KGH)</p>
+        <p>M.D. Radio-Diagnosis (LTMMC, Mumbai)</p>
+        <span class="medal">MUHS Gold Medal</span>
+      </div>
+    </div></div>
+  </section>
+
+  <section id="visit" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Ready for your scan?</h2>
+        <p>Phone us before you come so we can confirm your scan and any preparation.</p>
+        <div class="btns">
+          <a class="btn main" href="tel:+918019917498">Call 80199 17498</a>
+          <a class="btn green" href="https://wa.me/918019917498" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+      </div>
+      <div class="visit">
+        <div class="card">
+          <h3>📍 Find us</h3>
+          <p>Narsipatnam Road, near KNR Lodge</p>
+          <p>Balighattam, Andhra Pradesh</p>
+          <p style="margin-top:.9rem"><a class="btn line" href="https://www.google.com/maps/search/?api=1&amp;query=Dr.+Ramya%27s+Diagnostic+and+Scanning+Centre+Balighattam" target="_blank" rel="noopener">Open in Google Maps</a></p>
+        </div>
+        <div class="card">
+          <h3>📞 Call us</h3>
+          <p>Mobile: <a href="tel:+918019917498"><b>80199 17498</b></a></p>
+          <p>Landline: <a href="tel:+918937516045"><b>08937 516045</b></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© Dr. Ramya’s Diagnostic and Scanning Centre, Balighattam.</footer>
+
+<div class="dock"><a class='c' href='#book'>Book a slot</a><a class='c' style='background:var(--violet)' href='tel:+918019917498'>Call</a><a class="w" href="https://wa.me/918019917498" target="_blank" rel="noopener">WhatsApp</a></div>
+
+<script>
+(function(){
+  var D={g1:[["🤰","USG Obstetrics"],["👶","NT Scan"],["🧬","TIFFA (Anomaly)"],["💓","Obstetric Doppler"],["🌸","Follicular Study"],["🧠","Neurosonogram"]],
+         g2:[["🩺","USG Abdomen"],["🌷","USG Pelvis"],["🦋","USG Neck"],["🔹","USG Scrotum"],["📍","USG Local"],["🎀","Sonomammogram (Bilateral)"]],
+         g3:[["🌈","Colour Doppler, single"],["🎯","USG Guided FNAC"]]};
+  var n=0;
+  Object.keys(D).forEach(function(id){
+    var box=document.getElementById(id);
+    D[id].forEach(function(s){
+      var d=document.createElement("div");d.className="svc";
+      var i=document.createElement("span");i.className="ico k"+((n++%5)+1);i.setAttribute("aria-hidden","true");i.textContent=s[0];
+      var t=document.createElement("span");t.textContent=s[1];
+      d.appendChild(i);d.appendChild(t);box.appendChild(d);
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('bf'),done=document.getElementById('done'),err=document.getElementById('err'),
+      NL=String.fromCharCode(10),t=new Date(),M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var iso=t.getFullYear()+'-'+('0'+(t.getMonth()+1)).slice(-2)+'-'+('0'+t.getDate()).slice(-2);
+  document.getElementById('bd').min=iso;
+  function fd(v){var p=v.split('-');return p[2]+' '+M[+p[1]-1]+' '+p[0]}
+  function ft(v){var p=v.split(':'),h=+p[0],s=h>=12?'PM':'AM';h=h%12||12;return h+':'+p[1]+' '+s}
+  function val(id){return document.getElementById(id).value.trim()}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=val('bn'),ph=val('bp').replace(/\D/g,''),sc=val('bs'),dt=val('bd'),tm=val('bt'),nt=val('bm');
+    if(!name||ph.length<10||!sc||!dt||!tm){err.textContent='Please fill in your name, a 10-digit phone number, the scan, date and time.';return}
+    if(dt<iso){err.textContent='Please choose today’s date or a later date.';return}
+    err.textContent='';
+    var msg='Hello Dr. Ramya’s Diagnostic Centre, I would like to book a slot.'+NL+NL+'Name: '+name+NL+'Phone: '+ph+NL+'Scan: '+sc+NL+'Date: '+fd(dt)+NL+'Time: '+ft(tm)+(nt?NL+'Notes: '+nt:'');
+    var url='https://wa.me/918019917498?text='+encodeURIComponent(msg);
+    document.getElementById('wa').href=url;
+    document.getElementById('sum').textContent=msg;
+    f.hidden=true;done.hidden=false;
+    try{window.open(url,'_blank','noopener')}catch(x){}
+  });
+  document.getElementById('edit').addEventListener('click',function(){done.hidden=true;f.hidden=false});
+})();
+</script>
+</body>
+</html>
